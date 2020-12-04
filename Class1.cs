@@ -18,54 +18,68 @@ namespace Lab1PlaceGroup
     // IExternalApplication - отдельное поле на панели. Использование подраумевает наличие внутри ONstartup и onshutdown  https://www.revitapidocs.com/2015/196c8712-71de-03e8-b30d-a9625bd626d2.htm   
     // IExternalCommand - новая строка в выпадающем меню Надстройки - Внешние инструменты
     
-   
+    #region external application methods
+    
+    
     public class Class1 : IExternalApplication
     {
-    
-    
-        
+
+        #region external application methods
         
         public Result OnStartup(UIControlledApplication application)
         {
+
+            string tabName = "tabaNama";
+            application.CreateRibbonTab(tabName);
+            string panelAnnotationName = "PanelaAnnotationaNama";
+            application.CreateRibbonPanel(tabName, panelAnnotationName);
+            // выше создали вкладку на ленте и панель на этой вкладке
+
+
             return Result.Succeeded;
         }
-        
-        
-        
-                public Result OnShutdown(UIControlledApplication application)
+
+
+
+        public Result OnShutdown(UIControlledApplication application)
         {
-            string
             return Result.Succeeded;
         }
+
+
+        #endregion 
+
+
+    }
+}
         
         
         
-        
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            //Get application and documnet objects
-            UIApplication uiapp = commandData.Application;
-            Document doc = uiapp.ActiveUIDocument.Document;
-
-            //Define a reference Object to accept the pick result
-            Reference pickedref = null;
-
-            //Pick a group
-            Selection sel = uiapp.ActiveUIDocument.Selection;
-            pickedref = sel.PickObject(ObjectType.Element, "Please select a group");
-            Element elem = doc.GetElement(pickedref);
-            Group group = elem as Group;
-
-            //Pick point
-            XYZ point = sel.PickPoint("Please pick a point to place group");
-
-            //Place the group
-            Transaction trans = new Transaction(doc);
-            trans.Start("Lab");
-            doc.Create.PlaceGroup(point, group.GroupType);
-            trans.Commit();
-
-            return Result.Succeeded;
-        }
+//        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+//        {
+//            //Get application and documnet objects
+//            UIApplication uiapp = commandData.Application;
+//            Document doc = uiapp.ActiveUIDocument.Document;
+//
+//            //Define a reference Object to accept the pick result
+//            Reference pickedref = null;
+//
+//            //Pick a group
+//            Selection sel = uiapp.ActiveUIDocument.Selection;
+//            pickedref = sel.PickObject(ObjectType.Element, "Please select a group");
+//            Element elem = doc.GetElement(pickedref);
+//            Group group = elem as Group;
+//
+//            //Pick point
+//            XYZ point = sel.PickPoint("Please pick a point to place group");
+//
+//            //Place the group
+//            Transaction trans = new Transaction(doc);
+//            trans.Start("Lab");
+//            doc.Create.PlaceGroup(point, group.GroupType);
+//            trans.Commit();
+//
+//            return Result.Succeeded;
+//        }
     }
 }
