@@ -84,10 +84,30 @@ namespace Lab1PlaceGroup
 //    }
 // }
 
+/*
+
 1. Visual Studio create new ClassLibrary(.NET Core) - Библиотека классов(.NET Core)
 2. Check if Platform is relevant to you Revit version (for 2019 if .NET Framework 4.7.2)
 3. Solutiom manager > links > add link "C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll" and "C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll"
 4. Set local copy > false (see link propeties) for both just added links
-5. 
+5. Type code part ///
+6. Create manifest file as this:
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <RevitAddIns>
+                             <AddIn Type="Command">
+                                   <Name>Lab1PlaceGroup</Name>
+                                   <FullClassName>Lab1PlaceGroup.Class1</FullClassName>
+                                   <Text>Lab1PlaceGroup</Text>
+                                   <Description>Places the Group at Particular Point</Description>
+                                   <VisibilityMode>AlwaysVisible</VisibilityMode>
+                                   <Assembly>C:\test\Lab1PlaceGroup\Lab1PlaceGroup\bin\Debug\Lab1placeGroup.dll</Assembly>
+                                   <AddInId>502fe383-2648-4e98-adf8-5e6047f9dc34</AddInId>
+                                <VendorId>ADSK</VendorId>
+                                <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
+                             </AddIn>
+                            </RevitAddIns>
+7. Save this text as an addin-file and put this manifest file in "C:\ProgramData\Autodesk\Revit\Addins\20xx\"
+
+*/
 
 
