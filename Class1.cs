@@ -91,7 +91,8 @@ namespace Lab1PlaceGroup
 3. Solutiom manager > links > add link "C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll" and "C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll"
 4. Set local copy > false (see link propeties) for both just added links
 5. Type code part ///
-6. Create manifest file as this:
+6. Solutiom manager > RBC > собрать решение. copy file path *.dll for use in <Assembley> of manifest file see next point
+7. Create manifest file as this:
                             <?xml version="1.0" encoding="utf-8"?>
                             <RevitAddIns>
                              <AddIn Type="Command">
@@ -106,7 +107,7 @@ namespace Lab1PlaceGroup
                                 <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
                              </AddIn>
                             </RevitAddIns>
-7. Save this text as an addin-file and put this manifest file in "C:\ProgramData\Autodesk\Revit\Addins\20xx\"
+8. Save this text as an addin-file and put this manifest file in "C:\ProgramData\Autodesk\Revit\Addins\20xx\"
 
 */
 
