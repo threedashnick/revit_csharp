@@ -90,9 +90,20 @@ namespace Lab1PlaceGroup
 2. Check if Platform is relevant to you Revit version (for 2019 if .NET Framework 4.7.2)
 3. Solutiom manager > links > add link "C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll" and "C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll"
 4. Set local copy > false (see link propeties) for both just added links
-5. Type code part ///
-6. Solutiom manager > RBC > собрать решение. copy file path *.dll for use in <Assembley> of manifest file see next point
-7. Create manifest file as this:
+5. Check if all of libraries are specified as this:
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+        using Autodesk.Revit.ApplicationServices;
+        using Autodesk.Revit.Attributes;
+        using Autodesk.Revit.DB;
+        using Autodesk.Revit.UI;
+        using Autodesk.Revit.UI.Selection;
+6. Type code part /// between 10th and 11th lines
+7. Solutiom manager > RBC > собрать решение. copy file path *.dll for use in <Assembley> of manifest file see next point
+8. Create manifest file as this:
                             <?xml version="1.0" encoding="utf-8"?>
                             <RevitAddIns>
                              <AddIn Type="Command">
@@ -107,7 +118,7 @@ namespace Lab1PlaceGroup
                                 <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
                              </AddIn>
                             </RevitAddIns>
-8. Save this text as an addin-file and put this manifest file in "C:\ProgramData\Autodesk\Revit\Addins\20xx\"
+9. Save this text as an addin-file and put this manifest file in "C:\ProgramData\Autodesk\Revit\Addins\20xx\"
 
 */
 
