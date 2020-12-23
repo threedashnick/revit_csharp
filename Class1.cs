@@ -33,7 +33,7 @@ namespace Lab1PlaceGroup
             application.CreateRibbonTab(tabName);
             string panelAnnotationName = "PanelaAnnotationaNama";
             application.CreateRibbonPanel(tabName, panelAnnotationName);
-            // выше создали вкладку на ленте и панель на этой вкладке
+            // выше создали вкладку на ленте, а затем и панель на этой вкладке
 
 
             return Result.Succeeded;
