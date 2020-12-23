@@ -81,5 +81,13 @@ namespace Lab1PlaceGroup
 //
 //            return Result.Succeeded;
 //        }
-    }
-}
+//    }
+// }
+
+1. Visual Studio create new ClassLibrary(.NET Core) - Библиотека классов(.NET Core)
+2. Check if Platform is relevant to you Revit version (for 2019 if .NET Framework 4.7.2)
+3. Solutiom manager > links > add link "C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll" and "C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll"
+4. Set local copy > false (see link propeties) for both just added links
+5. 
+
+
