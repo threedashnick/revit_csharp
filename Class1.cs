@@ -8,39 +8,35 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+
 namespace Lab1PlaceGroup
-{
+      
     
-    
+{    
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
     
     // IExternalApplication - отдельное поле на панели. Использование подраумевает наличие внутри ONstartup и onshutdown  https://www.revitapidocs.com/2015/196c8712-71de-03e8-b30d-a9625bd626d2.htm   
     // IExternalCommand - новая строка в выпадающем меню Надстройки - Внешние инструменты
-    
-    #region external application methods
-    
+       
     
     public class Class1 : IExternalApplication
     {
-
-        #region external application methods
-        
+      
+      
         public Result OnStartup(UIControlledApplication application)
         {
-
             application.CreateRibbonTab("tabNameX");
             string path = Assembly.GetExecutingAssembly().Location;
-            PushButtonData button = new PushButtonData("button1", "tabNameX") 
+            PushButtonData button = new PushButtonData("button1", "tabNameX",path, Name) 
             application.CreateRibbonPanel("tabNameX", "tabNameY");
             // выше создали вкладку на ленте, 
             // после создаем переменную строку с хранением расположения файла со всем производимым действием
             // создаем кнопку (указываем 4 аргумента: название, родительская вкладка, путь к классу с функцией, название выполняемого класса)
             // затем создали панель на этой вкладке
-
-
             return Result.Succeeded;
         }
+
 
 
 
@@ -48,11 +44,6 @@ namespace Lab1PlaceGroup
         {
             return Result.Succeeded;
         }
-
-
-        #endregion 
-
-
     }
 }
         
