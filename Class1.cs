@@ -29,11 +29,14 @@ namespace Lab1PlaceGroup
         public Result OnStartup(UIControlledApplication application)
         {
 
-            string tabName = "tabaNama";
-            application.CreateRibbonTab(tabName);
-            string panelAnnotationName = "PanelaAnnotationaNama";
-            application.CreateRibbonPanel(tabName, panelAnnotationName);
-            // выше создали вкладку на ленте, а затем и панель на этой вкладке
+            application.CreateRibbonTab("tabNameX");
+            string path = Assembly.GetExecutingAssembly().Location;
+            PushButtonData button = new PushButtonData("button1", "tabNameX") 
+            application.CreateRibbonPanel("tabNameX", "tabNameY");
+            // выше создали вкладку на ленте, 
+            // после создаем переменную строку с хранением расположения файла со всем производимым действием
+            // создаем кнопку (указываем 4 аргумента: название, родительская вкладка, путь к классу с функцией, название выполняемого класса)
+            // затем создали панель на этой вкладке
 
 
             return Result.Succeeded;
@@ -83,6 +86,14 @@ namespace Lab1PlaceGroup
 //        }
 //    }
 // }
+
+code parts:
+
+MessageBox.Show("Hello World"); // выводить окошко с сообщением 
+
+
+
+
 
 /*
 
